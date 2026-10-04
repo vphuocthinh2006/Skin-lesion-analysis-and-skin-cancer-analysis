@@ -95,15 +95,18 @@ Issue #2 cần chốt split trước khi bắt đầu các thí nghiệm chính 
 
 ### 2. Tạo branch riêng cho issue
 
-Cập nhật main trước, rồi tạo branch theo task. Ví dụ làm issue #2:
+Các branch khởi động đã được tạo sẵn trên GitHub. Sau khi cập nhật main, checkout branch của issue được giao. Ví dụ issue #2:
 
 ~~~bash
 git switch main
 git pull origin main
-git switch -c feature/data-split
+git fetch origin
+git switch --track origin/feature/data-split
 ~~~
 
-Tên branch gợi ý:
+Nếu branch mới chưa tồn tại trên GitHub, tạo từ main bằng git switch -c <ten-branch>, rồi push lần đầu với git push -u origin <ten-branch>.
+
+Tên branch:
 
 ~~~text
 chore/repo-bootstrap
@@ -115,12 +118,7 @@ feature/roi-pipeline
 feature/demo-report
 ~~~
 
-Mỗi người chỉ làm trên branch được tạo cho đầu việc của mình. Không commit trực tiếp lên main. Nếu branch đã tồn tại từ xa, dùng:
-
-~~~bash
-git fetch origin
-git switch --track origin/feature/data-split
-~~~
+Mỗi người chỉ làm trên branch được tạo cho đầu việc của mình. Không commit trực tiếp lên main. Nếu branch đó đã được checkout ở máy, chuyển lại bằng git switch <ten-branch>.
 
 ### 3. Commit và push
 
@@ -144,7 +142,7 @@ Sau khi chỉnh sửa:
 git status
 git add <file-can-commit>
 git commit -m "data: create shared dataset split"
-git push -u origin feature/data-split
+git push
 ~~~
 
 Không thêm dòng Co-authored-by cho AI/công cụ hỗ trợ. Commit cần phản ánh người thực hiện và tài khoản GitHub của chính thành viên đó.

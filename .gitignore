@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+
+# Notebooks and editor files
+.ipynb_checkpoints/
+.vscode/
+.idea/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Dataset files (keep only manifests/split IDs in Git)
+data/raw/
+data/processed/
+data/external/
+
+# Model weights and experiment output
+checkpoints/
+*.pt
+*.pth
+*.ckpt
+*.onnx
+runs/
+wandb/
+
+# Logs and test cache
+*.log
+.pytest_cache/
